@@ -12,8 +12,6 @@ export default function Home() {
       </Head>
       <input
         autoFocus={true}
-        defaultValue={value}
-        id="text"
         onChange={(event) => setValue(event.currentTarget.value)}
       />
     </>
