@@ -2,10 +2,20 @@
   box-sizing: border-box;
 }
 
+:root {
+  --background-color: black;
+  --text-color: white;
+}
+
+.light {
+  --background-color: white;
+  --text-color: black;
+}
+
 html,
 body {
   align-items: center;
-  background-color: #000;
+  background-color: var(--background-color);
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -13,12 +23,13 @@ body {
   overflow: hidden;
   padding: 0;
   width: 100vw;
+  transition: background-color 200ms;
 }
 
 input {
   background-color: transparent;
   border: none;
-  color: #fff;
+  color: var(--text-color);
   font-family: system-ui, sans-serif;
   font-size: 5vmax;
   font-weight: 700;
@@ -28,8 +39,25 @@ input {
   text-align: center;
   white-space: normal;
   width: 100vw;
+  transition: color 200ms;
 }
 
 input:focus {
   outline: none;
+}
+
+svg {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  fill: var(--text-color);
+  opacity: 0.25;
+  transition: opacity 200ms;
+  cursor: pointer;
+}
+
+svg:hover {
+  opacity: 1;
 }
