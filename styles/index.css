@@ -36,7 +36,6 @@ input {
   margin: 0 auto;
   padding: 3rem;
   text-align: center;
-  text-align: center;
   white-space: normal;
   width: 100vw;
   transition: color 200ms;
@@ -50,14 +49,22 @@ svg {
   position: absolute;
   width: 20px;
   height: 20px;
-  left: 1.5rem;
-  bottom: 1.5rem;
   fill: var(--text-color);
   opacity: 0.25;
   transition: opacity 200ms;
   cursor: pointer;
+  bottom: 1.5rem;
 }
 
 svg:hover {
   opacity: 1;
+}
+
+svg.theme {
+  left: 1.5rem;
+}
+
+svg.copy {
+  right: 1.5rem;
+  visibility: hidden;
 }
