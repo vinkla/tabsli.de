@@ -1,9 +1,10 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
+import { Router, useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 
 export default function Home() {
-  const { query } = useRouter();
+  const router = useRouter();
+  const { query } = router;
   const [theme, setTheme] = useState('dark');
   const [value, setValue] = useState('Add text…');
 
@@ -15,7 +16,15 @@ export default function Home() {
     if (query.theme) {
       setTheme(query.theme);
     }
+
+    if (query.text) {
+      setValue(query.text);
+    }
   }, [query]);
+
+  if (query.theme || query.text) {
+    router.replace('/');
+  }
 
   return (
     <>
@@ -31,6 +40,7 @@ export default function Home() {
       <input
         autoFocus={true}
         onChange={(event) => setValue(event.currentTarget.value)}
+        value={value}
       />
       {theme === 'dark' ? (
         <svg
@@ -56,7 +66,14 @@ export default function Home() {
       <svg
         className="copy"
         viewBox="0 0 20 20"
-        onClick={() => console.log(btoa(encodeURIComponent(value)))}
+        onClick={() =>
+          navigator.clipboard.writeText(
+            `${window.location.origin}/?theme=${theme}&text=${value.replaceAll(
+              ' ',
+              '+'
+            )}`
+          )
+        }
       >
         <path d="M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z" />
         <path d="M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z" />
