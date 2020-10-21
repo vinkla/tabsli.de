@@ -6,7 +6,7 @@ export default function Home() {
   const router = useRouter();
   const { query } = router;
   const [theme, setTheme] = useState('dark');
-  const [value, setValue] = useState('Add text…');
+  const [value, setValue] = useState();
 
   useEffect(() => {
     document.body.className = theme;
@@ -32,13 +32,13 @@ export default function Home() {
         <title>{value || 'Add text…'}</title>
         <link
           rel="icon"
-          href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${
-            theme === 'dark' ? '🏴' : '🏳️'
-          }</text></svg>`}
+          href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22256%22 height=%22256%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2250%22 fill=%22%23${
+            theme === 'dark' ? '000000' : 'ffffff'
+          }%22></rect><path fill=%22%23fff%22 d=%22%22></path></svg>`}
         />
       </Head>
       <input
-        autoFocus={true}
+        autoFocus
         onChange={(event) => setValue(event.currentTarget.value)}
         value={value}
       />
