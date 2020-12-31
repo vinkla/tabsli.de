@@ -45,6 +45,13 @@ input:focus {
   outline: none;
 }
 
+button {
+  outline: none;
+  appearance: none;
+  background: none;
+  border: none;
+}
+
 svg {
   position: absolute;
   width: 20px;
