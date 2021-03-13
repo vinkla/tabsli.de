@@ -3,13 +3,13 @@
 }
 
 :root {
-  --background-color: black;
-  --text-color: white;
-}
-
-.light {
   --background-color: white;
   --text-color: black;
+}
+
+.dark {
+  --background-color: black;
+  --text-color: white;
 }
 
 html,
