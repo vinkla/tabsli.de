@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
 
   let text = "";
-  let theme = "dark";
+  let theme = "light";
 
   $: document.body.className = theme;
   $: document.title = text || "Add text...";
