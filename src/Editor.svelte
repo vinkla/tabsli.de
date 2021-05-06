@@ -5,6 +5,7 @@
 <input
   autofocus
   on:input={(event) => text.set(event.currentTarget.value)}
+  spellcheck={false}
   value={$text}
 />
 
