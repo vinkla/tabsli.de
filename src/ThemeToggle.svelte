@@ -23,16 +23,19 @@
 {/if}
 
 <style>
-  svg {
+  button {
     position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    cursor: pointer;
+  }
+  
+  svg {
     width: 20px;
     height: 20px;
     fill: var(--text-color);
     opacity: 0.25;
     transition: opacity 200ms;
-    cursor: pointer;
-    bottom: 1.5rem;
-    left: 1.5rem;
   }
 
   svg:hover {
