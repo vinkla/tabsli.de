@@ -1,13 +1,15 @@
 <script>
-  import { text, theme } from "./stores";
+  import { encode } from "qss";
+  import { alignment, text, theme } from "./stores";
 
   function handleClick() {
-    navigator.clipboard.writeText(
-      `${window.location.origin}/?theme=${$theme}&text=${$text.replaceAll(
-        " ",
-        "+"
-      )}`
-    );
+    const queryString = encode({
+      text: $text.replaceAll(" ", "+"),
+      alignment: $alignment,
+      theme: $theme,
+    });
+
+    navigator.clipboard.writeText(`${window.location.origin}/?${queryString}`);
   }
 </script>
 

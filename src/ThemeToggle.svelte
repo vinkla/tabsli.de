@@ -29,7 +29,7 @@
     left: 1.5rem;
     cursor: pointer;
   }
-  
+
   svg {
     width: 20px;
     height: 20px;
