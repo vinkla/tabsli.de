@@ -1,5 +1,12 @@
 <script>
+  import { onMount } from "svelte";
   import { text } from "./stores";
+
+  let content;
+
+  onMount(() => {
+    content = $text ?? "";
+  });
 </script>
 
 <div
@@ -8,7 +15,7 @@
   on:input={(event) => text.set(event.currentTarget.textContent)}
   spellcheck={false}
 >
-  {$text ?? ""}
+  {content}
 </div>
 
 <style>
