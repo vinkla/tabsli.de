@@ -6,9 +6,9 @@
     "serve": "vite preview"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.15",
-    "svelte": "^3.42.1",
-    "vite": "^2.4.4"
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.19",
+    "svelte": "^3.42.2",
+    "vite": "^2.5.0"
   },
   "dependencies": {
     "qss": "^2.0.3"
