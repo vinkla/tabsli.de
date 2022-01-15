@@ -23,7 +23,7 @@
   on:input={(event) => text.set(event.currentTarget.textContent)}
   spellcheck={false}
 >
-  {content}
+  {content || ""}
 </div>
 
 <style>
