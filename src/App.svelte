@@ -1,23 +1,10 @@
 <script>
-  import { onMount } from "svelte";
-  import { alignment, text, theme } from "./stores";
+  import { text, theme } from "./stores";
   import CopyUrl from "./CopyUrl.svelte";
   import Editor from "./Editor.svelte";
   import ThemeToggle from "./ThemeToggle.svelte";
-  import AlignmentToggle from "./AlignmentToggle.svelte";
 
-  $: document.body.className = $theme;
   $: document.title = $text || "Add text...";
-
-  onMount(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-
-    if (urlParams.has("alignment")) alignment.set(urlParams.get("alignment"));
-    if (urlParams.has("text")) text.set(urlParams.get("text"));
-    if (urlParams.has("theme")) theme.set(urlParams.get("theme"));
-
-    window.history.pushState(null, null, "/");
-  });
 </script>
 
 <svelte:head>
@@ -31,5 +18,4 @@
 
 <Editor />
 <ThemeToggle />
-<AlignmentToggle />
 <CopyUrl />

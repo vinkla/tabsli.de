@@ -1,11 +1,11 @@
 <script>
   import { encode } from "qss";
-  import { alignment, text, theme } from "./stores";
+  import strictUriEncode from "strict-uri-encode";
+  import { text, theme } from "./stores";
 
   function handleClick() {
     const queryString = encode({
-      text: $text.replaceAll(" ", "+"),
-      alignment: $alignment,
+      text: strictUriEncode($text.trim()),
       theme: $theme,
     });
 

@@ -5,10 +5,18 @@
   let content;
 
   onMount(() => {
-    content = $text ?? "";
+    const urlParams = new URLSearchParams(window.location.search);
+
+    if (urlParams.has("text")) {
+      content = urlParams.get("text");
+      text.set(content);
+    }
+
+    window.history.pushState(null, null, "/");
   });
 </script>
 
+<!-- svelte-ignore a11y-autofocus -->
 <div
   autofocus
   contenteditable
@@ -28,7 +36,7 @@
     font-weight: 700;
     margin: 0 auto;
     padding: 3rem;
-    text-align: var(--text-alignment);
+    text-align: center;
     white-space: normal;
     width: 100vw;
     transition: color 200ms;
