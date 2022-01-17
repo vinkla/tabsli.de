@@ -1,21 +1,18 @@
 <script>
   import { onMount } from "svelte";
-
-  let theme = "light";
+  import { theme } from "./stores";
 
   onMount(() => {
     const urlParams = new URLSearchParams(window.location.search);
 
-    if (urlParams.has("theme")) theme = urlParams.get("theme");
-
-    window.history.pushState(null, null, "/");
+    if (urlParams.has("theme")) theme.set(urlParams.get("theme"));
   });
 
-  $: document.body.className = theme;
+  $: document.body.className = $theme;
 </script>
 
-{#if theme === "dark"}
-  <button title="Light Mode" on:click={() => (theme = "light")}>
+{#if $theme === "dark"}
+  <button title="Light Mode" on:click={() => theme.set("light")}>
     <svg viewBox="0 0 20 20">
       <path
         fill-rule="evenodd"
@@ -25,7 +22,7 @@
     </svg>
   </button>
 {:else}
-  <button title="Dark Mode" on:click={() => (theme = "dark")}>
+  <button title="Dark Mode" on:click={() => theme.set("dark")}>
     <svg viewBox="0 0 20 20">
       <path
         d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"

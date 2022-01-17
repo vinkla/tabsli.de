@@ -11,8 +11,6 @@
       content = urlParams.get("text");
       text.set(content);
     }
-
-    window.history.pushState(null, null, "/");
   });
 </script>
 
