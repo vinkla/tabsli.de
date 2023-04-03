@@ -2,5 +2,5 @@
 
 Simple text slides for your browser-based presentation.
 
-[Try it now →](https://www.tabsli.de/)
+[Try it now →](https://tabslide.netlify.app)
 
